@@ -1,0 +1,57 @@
+CLASS lhc_ZES_HDR_CDS DEFINITION INHERITING FROM cl_abap_behavior_handler.
+  PRIVATE SECTION.
+
+    METHODS get_instance_authorizations FOR INSTANCE AUTHORIZATION
+      IMPORTING keys REQUEST requested_authorizations FOR zes_hdr_cds RESULT result.
+
+    METHODS earlynumbering_create FOR NUMBERING
+      IMPORTING entities FOR CREATE zes_hdr_cds.
+
+    METHODS earlynumbering_cba_Soitem FOR NUMBERING
+      IMPORTING entities FOR CREATE zes_hdr_cds\_Soitem.
+
+ENDCLASS.
+
+CLASS lhc_ZES_HDR_CDS IMPLEMENTATION.
+
+  METHOD get_instance_authorizations.
+  ENDMETHOD.
+
+  METHOD earlynumbering_create.
+
+    SELECT MAX( id ) FROM zes_header INTO @DATA(new_id).
+
+
+    LOOP AT entities ASSIGNING FIELD-SYMBOL(<lfs_ent>).
+
+      new_id = new_id + 1.
+
+      INSERT VALUE #( %cid = <lfs_ent>-%cid
+                        id = new_id
+    ) INTO TABLE mapped-zes_hdr_cds.
+
+    ENDLOOP.
+
+  ENDMETHOD.
+
+  METHOD earlynumbering_cba_Soitem.
+
+    SELECT MAX( item_id ) FROM zes_items INTO @DATA(new_id).
+
+    LOOP AT entities ASSIGNING FIELD-SYMBOL(<lfs_ent>).
+
+      LOOP AT <lfs_ent>-%target ASSIGNING FIELD-SYMBOL(<lfs_target>).
+
+        new_id = new_id + 1.
+
+        INSERT VALUE #( %cid = <lfs_target>-%cid
+                          id = <lfs_ent>-id
+                          item_id = new_id
+
+      ) INTO TABLE mapped-zes_itm_cds.
+
+      ENDLOOP.
+    ENDLOOP.
+  ENDMETHOD.
+
+ENDCLASS.

@@ -1,0 +1,45 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Item & Header Birleşik CDS'
+define root view entity ZES_HDR_ITM as select from ZES_HDR_CDS as _Header association[0..*] to ZES_ITM_CDS as _Item on _Header.id = _Item.id
+
+{
+
+    key _Header.id,
+
+    _Header.prog_date,
+
+    _Header.inv_date,
+
+    _Header.dist_ch,
+
+    _Header.inv_type,
+
+    _Header.inter,
+
+    _Header.currency,
+
+    
+
+    _Item,
+
+    _Item.item_id,
+
+    _Item.pyp,
+
+    _Item.base_amount,
+
+    _Item.base_try,
+
+    _Item.kdv_amount,
+
+    _Item.kdv_try,
+
+    /* Associations */
+
+    _Header._SOItem
+
+    
+
+}
+
+ 

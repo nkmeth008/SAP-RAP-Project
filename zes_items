@@ -1,0 +1,18 @@
+@EndUserText.label : 'Item Table'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zes_items {
+
+  key client  : abap.clnt not null;
+  key id      : abap.int8 not null;
+  key item_id : abap.int8 not null;
+  pyp         : abap.char(20);
+  kdv         : abap.int8;
+  base_amount : abap.int8;
+  base_try    : abap.int8;
+  kdv_amount  : abap.int8;
+  kdv_try     : abap.int8;
+
+}

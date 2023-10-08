@@ -1,0 +1,17 @@
+@EndUserText.label : 'Header Table'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zes_header {
+
+  key client : abap.clnt not null;
+  key id     : abap.int8 not null;
+  prog_date  : abap.dats;
+  inv_date   : abap.dats;
+  dist_ch    : abap.char(20);
+  inv_type   : abap.char(20);
+  inter      : abap.char(20);
+  currency   : abap.char(3);
+
+}

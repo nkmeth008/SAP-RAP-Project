@@ -1,0 +1,187 @@
+{
+
+    "d": {
+
+        "prog_date": "/Date(1698364800000)/",
+
+        "inv_date": "/Date(1696809600000)/",
+
+        "dist_ch": "RANDOM",
+
+        "inv_type": "DOKUMAN",
+
+        "inter": "",
+
+        "currency": "USD",
+
+        "to_SOItem": {
+
+            "results": [
+
+                {
+
+                    "pyp": "",
+
+                    "kdv": "25",
+
+                    "base_amount": "450",
+
+                    "base_try": "384",
+
+                    "kdv_amount": "751",
+
+                    "kdv_try": "194"
+
+                },
+
+                 {
+
+                    "pyp": "",
+
+                    "kdv": "27",
+
+                    "base_amount": "450",
+
+                    "base_try": "384",
+
+                    "kdv_amount": "751",
+
+                    "kdv_try": "194"
+
+                },
+
+                 {
+
+                    "pyp": "",
+
+                    "kdv": "28",
+
+                    "base_amount": "450",
+
+                    "base_try": "384",
+
+                    "kdv_amount": "751",
+
+                    "kdv_try": "194"
+
+                },
+
+                 {
+
+                    "pyp": "",
+
+                    "kdv": "29",
+
+                    "base_amount": "450",
+
+                    "base_try": "384",
+
+                    "kdv_amount": "751",
+
+                    "kdv_try": "194"
+
+                }
+
+            ]
+
+        }
+
+    }
+
+}
+
+
+
+/**
+{
+
+    "d": {
+
+        "prog_date": "/Date(1698364800000)/",
+
+        "inv_date": "/Date(1696809600000)/",
+
+        "dist_ch": "RANDOM",
+
+        "inv_type": "DOKUMAN",
+
+        "inter": "",
+
+        "currency": "USD",
+
+        "to_SOItem": {
+
+            "results": [
+
+                {
+
+                    "pyp": "",
+
+                    "kdv": "25",
+
+                    "base_amount": "450",
+
+                    "base_try": "384",
+
+                    "kdv_amount": "751",
+
+                    "kdv_try": "194"
+
+                },
+
+                 {
+
+                    "pyp": "",
+
+                    "kdv": "27",
+
+                    "base_amount": "450",
+
+                    "base_try": "384",
+
+                    "kdv_amount": "751",
+
+                    "kdv_try": "194"
+
+                },
+
+                 {
+
+                    "pyp": "",
+
+                    "kdv": "28",
+
+                    "base_amount": "450",
+
+                    "base_try": "384",
+
+                    "kdv_amount": "751",
+
+                    "kdv_try": "194"
+
+                },
+
+                 {
+
+                    "pyp": "",
+
+                    "kdv": "29",
+
+                    "base_amount": "450",
+
+                    "base_try": "384",
+
+                    "kdv_amount": "751",
+
+                    "kdv_try": "194"
+
+                }
+
+            ]
+
+        }
+
+    }
+
+}
+*//

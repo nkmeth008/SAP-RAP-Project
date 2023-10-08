@@ -1,0 +1,42 @@
+managed implementation in class zbp_es_hdr_cds unique;
+//strict ( 2 ); //Uncomment this line in order to enable strict mode 2. The strict mode has two variants (strict(1), strict(2)) and is prerequisite to be future proof regarding syntax and to be able to release your BO.
+
+define behavior for ZES_HDR_CDS //alias <alias_name>
+persistent table zes_header
+lock master
+authorization master ( instance )
+early numbering
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+
+  field ( readonly ) id;
+  association _SOItem { create; }
+
+  mapping for zes_header corresponding
+    {
+      id        = id;
+      prog_date = prog_date;
+      inv_date  = inv_date;
+      dist_ch   = dist_ch;
+      inv_type  = inv_type;
+      inter     = inter;
+      currency  = currency;
+    }
+}
+
+define behavior for ZES_ITM_CDS //alias <alias_name>
+persistent table zes_items
+lock dependent by _SOhdr
+authorization dependent by _SOhdr
+early numbering
+//etag master <field_name>
+{
+
+  update;
+  delete;
+  field ( readonly ) id,item_id;
+  association _SOhdr;
+}

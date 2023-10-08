@@ -1,0 +1,121 @@
+@AbapCatalog.sqlViewName: 'ZES_ITEM_VIEW1'
+@AbapCatalog.compiler.compareFilter: true
+@AbapCatalog.preserveKey: true
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Item CDS'
+
+
+define view ZES_ITM_CDS as select from zes_items as SOItem
+association to parent ZES_HDR_CDS as _SOhdr
+    on $projection.id = _SOhdr.id
+
+  
+    {
+    @UI.facet: [
+
+
+{type: #COLLECTION, position: 10, id: 'SoItem', label: 'Sales Order Item'},
+
+{type: #FIELDGROUP_REFERENCE, position: 10, targetQualifier: 'SoItem1',parentId: 'SoItem', isSummary: true, isPartOfPreview: true},
+{type: #FIELDGROUP_REFERENCE, position: 20, targetQualifier: 'SoItem2',parentId: 'SoItem', isSummary: true, isPartOfPreview: true}
+
+ 
+
+]
+
+
+//
+//@UI: {
+//lineItem: [ { position: 10, importance: #HIGH,label: 'ID' } ],
+//fieldGroup: [{qualifier: 'SoItem1',position: 10,importance: #HIGH }]
+//}
+//@EndUserText:{label: 'Sales Order ID'}
+key  SOItem.id,
+
+ 
+
+@UI: {
+lineItem: [ { position: 20, importance: #HIGH,label: 'Item ID' } ],
+fieldGroup: [{qualifier: 'SoItem1',position: 20,importance: #HIGH }]
+}
+@EndUserText:{label: 'Item ID '}
+key  SOItem.item_id,
+
+
+@UI: {
+lineItem: [ { position: 30, importance: #HIGH,label: 'PYP' } ],
+fieldGroup: [{qualifier: 'SoItem1',position: 30,importance: #HIGH }]
+
+}
+@EndUserText:{label: 'PYP'}
+@Search.defaultSearchElement: true
+@Search.fuzzinessThreshold: 0.8
+SOItem.pyp,
+
+
+
+@UI: {
+lineItem: [ { position: 40, importance: #HIGH ,label: 'KDV'} ],
+fieldGroup: [{qualifier: 'SoItem2',position: 40,importance: #HIGH }]
+}
+@EndUserText:{label: 'KDV'}
+SOItem.kdv,
+
+ 
+
+
+
+@UI: {
+lineItem: [ { position: 50, importance: #HIGH ,label: 'Matrah Tutarı'} ],
+fieldGroup: [{qualifier: 'SoItem2',position: 50,importance: #HIGH }]
+}
+@EndUserText:{label: 'Matrah Tutarı'}
+SOItem.base_amount,
+
+ 
+
+
+@UI: {
+lineItem: [ { position: 60, importance: #HIGH ,label: 'Matrah TRY Tutarı'} ],
+fieldGroup: [{qualifier: 'SoItem2',position: 60,importance: #HIGH }]
+}
+@EndUserText:{label: 'Matrah TRY Tutarı'}
+SOItem.base_try,
+
+ 
+
+
+@UI: {
+lineItem: [ { position: 70, importance: #HIGH ,label: 'KDV Tutarı'} ],
+fieldGroup: [{qualifier: 'SoItem2',position: 70,importance: #HIGH }]
+}
+@EndUserText:{label: 'KDV Tutarı'}
+SOItem.kdv_amount,
+
+ 
+
+ 
+
+@UI: {
+lineItem: [ { position: 80, importance: #HIGH ,label: 'KDV TRY Tutarı'} ],
+fieldGroup: [{qualifier: 'SoItem2',position: 80,importance: #HIGH }]
+}
+@EndUserText:{label: 'KDV TRY Tutarı'}
+SOItem.kdv_try,
+
+ 
+
+@EndUserText:{label: 'UoM'}
+@Semantics.unitOfMeasure: true
+@Consumption.valueHelpDefinition: [{
+
+        entity:{
+        element: 'UnitOfMeasure',
+        name:'I_UnitOfMeasure'
+        }
+}]
+
+_SOhdr // Make association public
+
+}
+
